@@ -16,7 +16,7 @@ This repository is a public artifact bundle for a personal Japanese TTS / voice 
 This is a personal experiment, not a peer-reviewed benchmark or forensic voice-identification report.
 The raw reference recordings and full generated output set are intentionally excluded.
 
-この公開版では、プライバシー保護のため本人の元録音は含めていません。音声サンプルは公開用に選抜した生成音声をMP3化し、試聴しやすい音量へ正規化したものです。
+この公開版では、プライバシー保護のため本人の元録音は含めていません。音声サンプルは公開用に選抜した生成音声を、元WAVからMP3へエンコードし、試聴しやすい音量へ正規化したものです。
 
 ## Suggested Publishing Flow
 

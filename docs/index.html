@@ -42,6 +42,67 @@
       border-radius: 10px;
       color: #40506a;
     }
+    .method-note {
+      margin: 20px 0 0;
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: #40506a;
+      font-size: .95rem;
+    }
+    .comparison-list {
+      display: grid;
+      gap: 26px;
+      margin-top: 20px;
+    }
+    .comparison-block {
+      display: grid;
+      grid-template-columns: minmax(240px, .85fr) minmax(0, 1.7fr);
+      gap: 18px;
+      align-items: start;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .comparison-block:last-child { border-bottom: 1px solid var(--line); }
+    .prompt-panel {
+      position: sticky;
+      top: 16px;
+      padding: 4px 0;
+    }
+    .prompt-id {
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .prompt-panel p {
+      margin: 0;
+      font-size: 1.04rem;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .model-player {
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--paper);
+    }
+    .model-name {
+      min-height: 2.6em;
+      display: flex;
+      align-items: center;
+      color: var(--ink);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -73,6 +134,12 @@
       min-height: 3.2em;
     }
     audio { display: block; width: 100%; margin-top: 10px; }
+    @media (max-width: 780px) {
+      .comparison-block { grid-template-columns: 1fr; }
+      .prompt-panel { position: static; }
+      .model-grid { grid-template-columns: 1fr; }
+      .model-name { min-height: 0; }
+    }
     footer {
       width: min(1120px, calc(100% - 32px));
       margin: 48px auto;
@@ -86,230 +153,171 @@
     <div class="hero">
       <h1>ローカル日本語TTS Voice Clone 音声サンプル</h1>
       <p class="lede">Zenn記事「ローカルPCで自分の声の日本語TTSを作る: 録音、モデル比較、音響分析まで」の補助ページです。同一文のモデル比較と、Irodori-TTS 600M VoiceDesignで生成したEV発表スピーチ抜粋を試聴できます。</p>
-      <div class="notice">この公開版では、プライバシー保護のため本人の元録音は含めていません。音声サンプルは公開用に選抜した生成音声をMP3化し、試聴しやすい音量へ正規化したものです。</div>
+      <div class="notice">この公開版では、プライバシー保護のため本人の元録音は含めていません。音声サンプルは公開用に選抜した生成音声を、元WAVからMP3へエンコードし、試聴しやすい音量へ正規化したものです。</div>
+      <div class="method-note">公開用音声は、生成されたWAVファイルを元に、FFmpegの <code>loudnorm=I=-18:TP=-1.5:LRA=11</code> で試聴音量をそろえ、MP3 160kbpsへエンコードしています。分析本文で扱った音響指標は、原則として元WAVを対象にしています。</div>
     </div>
   </header>
   <main>
     <section>
       <h2>同一文モデル比較</h2>
-      <p>4つの評価文について、各モデルが生成した音声を並べています。元録音は公開版から除外しています。</p>
-      <div class="grid">
+      <p>各ブロックの左側に評価文を置き、右側に同じ文を各モデルで生成した音声を並べています。元録音は公開版から除外しています。</p>
+      <div class="comparison-list">
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_005</span>
-            <strong>Irodori-TTS 500M</strong>
+        <section class="comparison-block">
+          <div class="prompt-panel">
+            <div class="prompt-id">similarity_h4n_005</div>
+            <p>はい、では次に、数字と固有名詞を含む文章をもう一度確認しましょう。</p>
           </div>
-          <p>はい、では次に、数字と固有名詞を含む文章をもう一度確認しましょう。</p>
-          <audio controls preload="none" src="audio/same-text/005_irodori-500m.mp3"></audio>
-        </article>
+          <div class="model-grid">
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_005</span>
-            <strong>Irodori-TTS 600M VoiceDesign</strong>
-          </div>
-          <p>はい、では次に、数字と固有名詞を含む文章をもう一度確認しましょう。</p>
-          <audio controls preload="none" src="audio/same-text/005_irodori-600m-voicedesign.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Irodori-TTS 500M</div>
+              <audio controls preload="none" src="audio/same-text/005_irodori-500m.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_005</span>
-            <strong>Qwen3-TTS 1.7B</strong>
-          </div>
-          <p>はい、では次に、数字と固有名詞を含む文章をもう一度確認しましょう。</p>
-          <audio controls preload="none" src="audio/same-text/005_qwen3-tts-1p7b.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Irodori-TTS 600M VoiceDesign</div>
+              <audio controls preload="none" src="audio/same-text/005_irodori-600m-voicedesign.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_005</span>
-            <strong>Fish Speech S2 Pro</strong>
-          </div>
-          <p>はい、では次に、数字と固有名詞を含む文章をもう一度確認しましょう。</p>
-          <audio controls preload="none" src="audio/same-text/005_fish-speech-s2.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Qwen3-TTS 1.7B</div>
+              <audio controls preload="none" src="audio/same-text/005_qwen3-tts-1p7b.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_005</span>
-            <strong>CosyVoice2</strong>
-          </div>
-          <p>はい、では次に、数字と固有名詞を含む文章をもう一度確認しましょう。</p>
-          <audio controls preload="none" src="audio/same-text/005_cosyvoice2.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Fish Speech S2 Pro</div>
+              <audio controls preload="none" src="audio/same-text/005_fish-speech-s2.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_005</span>
-            <strong>VoxCPM2 ultimate</strong>
-          </div>
-          <p>はい、では次に、数字と固有名詞を含む文章をもう一度確認しましょう。</p>
-          <audio controls preload="none" src="audio/same-text/005_voxcpm2-ultimate.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">CosyVoice2</div>
+              <audio controls preload="none" src="audio/same-text/005_cosyvoice2.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_026</span>
-            <strong>Irodori-TTS 500M</strong>
+            <div class="model-player">
+              <div class="model-name">VoxCPM2 ultimate</div>
+              <audio controls preload="none" src="audio/same-text/005_voxcpm2-ultimate.mp3"></audio>
+            </div>
           </div>
-          <p>RTX 5060 Ti、VRAM 16GB、CUDA、Python、PyTorch を確認します。</p>
-          <audio controls preload="none" src="audio/same-text/026_irodori-500m.mp3"></audio>
-        </article>
+        </section>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_026</span>
-            <strong>Irodori-TTS 600M VoiceDesign</strong>
+        <section class="comparison-block">
+          <div class="prompt-panel">
+            <div class="prompt-id">similarity_h4n_026</div>
+            <p>RTX 5060 Ti、VRAM 16GB、CUDA、Python、PyTorch を確認します。</p>
           </div>
-          <p>RTX 5060 Ti、VRAM 16GB、CUDA、Python、PyTorch を確認します。</p>
-          <audio controls preload="none" src="audio/same-text/026_irodori-600m-voicedesign.mp3"></audio>
-        </article>
+          <div class="model-grid">
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_026</span>
-            <strong>Qwen3-TTS 1.7B</strong>
-          </div>
-          <p>RTX 5060 Ti、VRAM 16GB、CUDA、Python、PyTorch を確認します。</p>
-          <audio controls preload="none" src="audio/same-text/026_qwen3-tts-1p7b.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Irodori-TTS 500M</div>
+              <audio controls preload="none" src="audio/same-text/026_irodori-500m.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_026</span>
-            <strong>Fish Speech S2 Pro</strong>
-          </div>
-          <p>RTX 5060 Ti、VRAM 16GB、CUDA、Python、PyTorch を確認します。</p>
-          <audio controls preload="none" src="audio/same-text/026_fish-speech-s2.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Irodori-TTS 600M VoiceDesign</div>
+              <audio controls preload="none" src="audio/same-text/026_irodori-600m-voicedesign.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_026</span>
-            <strong>CosyVoice2</strong>
-          </div>
-          <p>RTX 5060 Ti、VRAM 16GB、CUDA、Python、PyTorch を確認します。</p>
-          <audio controls preload="none" src="audio/same-text/026_cosyvoice2.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Qwen3-TTS 1.7B</div>
+              <audio controls preload="none" src="audio/same-text/026_qwen3-tts-1p7b.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_026</span>
-            <strong>VoxCPM2 ultimate</strong>
-          </div>
-          <p>RTX 5060 Ti、VRAM 16GB、CUDA、Python、PyTorch を確認します。</p>
-          <audio controls preload="none" src="audio/same-text/026_voxcpm2-ultimate.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Fish Speech S2 Pro</div>
+              <audio controls preload="none" src="audio/same-text/026_fish-speech-s2.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_051</span>
-            <strong>Irodori-TTS 500M</strong>
-          </div>
-          <p>これは説明動画の冒頭で使う、落ち着いた読み上げの文章です。</p>
-          <audio controls preload="none" src="audio/same-text/051_irodori-500m.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">CosyVoice2</div>
+              <audio controls preload="none" src="audio/same-text/026_cosyvoice2.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_051</span>
-            <strong>Irodori-TTS 600M VoiceDesign</strong>
+            <div class="model-player">
+              <div class="model-name">VoxCPM2 ultimate</div>
+              <audio controls preload="none" src="audio/same-text/026_voxcpm2-ultimate.mp3"></audio>
+            </div>
           </div>
-          <p>これは説明動画の冒頭で使う、落ち着いた読み上げの文章です。</p>
-          <audio controls preload="none" src="audio/same-text/051_irodori-600m-voicedesign.mp3"></audio>
-        </article>
+        </section>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_051</span>
-            <strong>Qwen3-TTS 1.7B</strong>
+        <section class="comparison-block">
+          <div class="prompt-panel">
+            <div class="prompt-id">similarity_h4n_051</div>
+            <p>これは説明動画の冒頭で使う、落ち着いた読み上げの文章です。</p>
           </div>
-          <p>これは説明動画の冒頭で使う、落ち着いた読み上げの文章です。</p>
-          <audio controls preload="none" src="audio/same-text/051_qwen3-tts-1p7b.mp3"></audio>
-        </article>
+          <div class="model-grid">
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_051</span>
-            <strong>Fish Speech S2 Pro</strong>
-          </div>
-          <p>これは説明動画の冒頭で使う、落ち着いた読み上げの文章です。</p>
-          <audio controls preload="none" src="audio/same-text/051_fish-speech-s2.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Irodori-TTS 500M</div>
+              <audio controls preload="none" src="audio/same-text/051_irodori-500m.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_051</span>
-            <strong>CosyVoice2</strong>
-          </div>
-          <p>これは説明動画の冒頭で使う、落ち着いた読み上げの文章です。</p>
-          <audio controls preload="none" src="audio/same-text/051_cosyvoice2.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Irodori-TTS 600M VoiceDesign</div>
+              <audio controls preload="none" src="audio/same-text/051_irodori-600m-voicedesign.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_051</span>
-            <strong>VoxCPM2 ultimate</strong>
-          </div>
-          <p>これは説明動画の冒頭で使う、落ち着いた読み上げの文章です。</p>
-          <audio controls preload="none" src="audio/same-text/051_voxcpm2-ultimate.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Qwen3-TTS 1.7B</div>
+              <audio controls preload="none" src="audio/same-text/051_qwen3-tts-1p7b.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_087</span>
-            <strong>Irodori-TTS 500M</strong>
-          </div>
-          <p>生き物の声と、生ビールの注文では、生の読み方が変わります。</p>
-          <audio controls preload="none" src="audio/same-text/087_irodori-500m.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Fish Speech S2 Pro</div>
+              <audio controls preload="none" src="audio/same-text/051_fish-speech-s2.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_087</span>
-            <strong>Irodori-TTS 600M VoiceDesign</strong>
-          </div>
-          <p>生き物の声と、生ビールの注文では、生の読み方が変わります。</p>
-          <audio controls preload="none" src="audio/same-text/087_irodori-600m-voicedesign.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">CosyVoice2</div>
+              <audio controls preload="none" src="audio/same-text/051_cosyvoice2.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_087</span>
-            <strong>Qwen3-TTS 1.7B</strong>
+            <div class="model-player">
+              <div class="model-name">VoxCPM2 ultimate</div>
+              <audio controls preload="none" src="audio/same-text/051_voxcpm2-ultimate.mp3"></audio>
+            </div>
           </div>
-          <p>生き物の声と、生ビールの注文では、生の読み方が変わります。</p>
-          <audio controls preload="none" src="audio/same-text/087_qwen3-tts-1p7b.mp3"></audio>
-        </article>
+        </section>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_087</span>
-            <strong>Fish Speech S2 Pro</strong>
+        <section class="comparison-block">
+          <div class="prompt-panel">
+            <div class="prompt-id">similarity_h4n_087</div>
+            <p>生き物の声と、生ビールの注文では、生の読み方が変わります。</p>
           </div>
-          <p>生き物の声と、生ビールの注文では、生の読み方が変わります。</p>
-          <audio controls preload="none" src="audio/same-text/087_fish-speech-s2.mp3"></audio>
-        </article>
+          <div class="model-grid">
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_087</span>
-            <strong>CosyVoice2</strong>
-          </div>
-          <p>生き物の声と、生ビールの注文では、生の読み方が変わります。</p>
-          <audio controls preload="none" src="audio/same-text/087_cosyvoice2.mp3"></audio>
-        </article>
+            <div class="model-player">
+              <div class="model-name">Irodori-TTS 500M</div>
+              <audio controls preload="none" src="audio/same-text/087_irodori-500m.mp3"></audio>
+            </div>
 
-        <article class="sample-card" data-group="同一文モデル比較">
-          <div class="sample-meta">
-            <span>similarity_h4n_087</span>
-            <strong>VoxCPM2 ultimate</strong>
+            <div class="model-player">
+              <div class="model-name">Irodori-TTS 600M VoiceDesign</div>
+              <audio controls preload="none" src="audio/same-text/087_irodori-600m-voicedesign.mp3"></audio>
+            </div>
+
+            <div class="model-player">
+              <div class="model-name">Qwen3-TTS 1.7B</div>
+              <audio controls preload="none" src="audio/same-text/087_qwen3-tts-1p7b.mp3"></audio>
+            </div>
+
+            <div class="model-player">
+              <div class="model-name">Fish Speech S2 Pro</div>
+              <audio controls preload="none" src="audio/same-text/087_fish-speech-s2.mp3"></audio>
+            </div>
+
+            <div class="model-player">
+              <div class="model-name">CosyVoice2</div>
+              <audio controls preload="none" src="audio/same-text/087_cosyvoice2.mp3"></audio>
+            </div>
+
+            <div class="model-player">
+              <div class="model-name">VoxCPM2 ultimate</div>
+              <audio controls preload="none" src="audio/same-text/087_voxcpm2-ultimate.mp3"></audio>
+            </div>
           </div>
-          <p>生き物の声と、生ビールの注文では、生の読み方が変わります。</p>
-          <audio controls preload="none" src="audio/same-text/087_voxcpm2-ultimate.mp3"></audio>
-        </article>
+        </section>
       </div>
     </section>
     <section>
