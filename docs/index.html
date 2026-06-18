@@ -128,11 +128,38 @@
       font-weight: 700;
     }
     .sample-meta strong { font-size: 1rem; }
+    .sample-id {
+      margin: -2px 0 8px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    }
     .sample-card p {
       color: #40506a;
       font-size: .94rem;
-      min-height: 3.2em;
     }
+    .sample-note { min-height: 3em; }
+    .sample-text {
+      white-space: normal;
+      margin-bottom: 12px;
+    }
+    .sample-settings {
+      margin: 10px 0 2px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    }
+    .text-detail {
+      margin: 8px 0 12px;
+      color: #40506a;
+      font-size: .94rem;
+    }
+    .text-detail summary {
+      cursor: pointer;
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+    .text-detail .sample-text { margin-top: 8px; }
     audio { display: block; width: 100%; margin-top: 10px; }
     @media (max-width: 780px) {
       .comparison-block { grid-template-columns: 1fr; }
@@ -152,7 +179,7 @@
   <header>
     <div class="hero">
       <h1>ローカル日本語TTS Voice Clone 音声サンプル</h1>
-      <p class="lede">Zenn記事「ローカルPCで自分の声の日本語TTSを作る: 録音、モデル比較、音響分析まで」の補助ページです。同一文のモデル比較と、Irodori-TTS 600M VoiceDesignで生成したEV発表スピーチ抜粋を試聴できます。</p>
+      <p class="lede">Zenn記事「ローカルPCで自分の声の日本語TTSを作る: 録音、モデル比較、音響分析まで」の補助ページです。同一文のモデル比較、公開用に選抜した生成音声、Irodori-TTS 600M VoiceDesignで生成したEV発表スピーチ抜粋を試聴できます。</p>
       <div class="notice">この公開版では、プライバシー保護のため本人の元録音は含めていません。音声サンプルは公開用に選抜した生成音声を、元WAVからMP3へエンコードし、試聴しやすい音量へ正規化したものです。</div>
       <div class="method-note">公開用音声は、生成されたWAVファイルを元に、FFmpegの <code>loudnorm=I=-18:TP=-1.5:LRA=11</code> で試聴音量をそろえ、MP3 160kbpsへエンコードしています。分析本文で扱った音響指標は、原則として元WAVを対象にしています。</div>
     </div>
@@ -321,79 +348,267 @@
       </div>
     </section>
     <section>
+      <h2>選抜公開サンプル</h2>
+      <p>良好例、ナレーション、技術語・数字を含む難例、プレゼン文を少数に絞って追加しました。すべて生成済みWAVを元にMP3化し、同じラウドネス設定で正規化しています。</p>
+      <div class="grid">
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>良好例</span>
+            <strong>Fish Speech S2 Pro</strong>
+          </div>
+          <div class="sample-id">curated_01_fish_conversation</div>
+          <p class="sample-note">短い会話文で自然さが出やすかった代表例。</p>
+          <p class="sample-text">おはようございます。昨日送っていただいた資料、先ほど確認しました。</p>
+          <div class="sample-settings">round2_ref8s</div>
+          <audio controls preload="none" src="audio/curated/01_fish_conversation.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>良好例</span>
+            <strong>Irodori-TTS 600M VoiceDesign</strong>
+          </div>
+          <div class="sample-id">curated_02_irodori_conversation</div>
+          <p class="sample-note">生成速度と品質のバランスがよかった短文例。</p>
+          <p class="sample-text">おはようございます。昨日送っていただいた資料、先ほど確認しました。</p>
+          <div class="sample-settings">round2_ref20s / steps=24</div>
+          <audio controls preload="none" src="audio/curated/02_irodori_conversation.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>良好例</span>
+            <strong>Qwen3-TTS 1.7B</strong>
+          </div>
+          <div class="sample-id">curated_03_qwen3_conversation</div>
+          <p class="sample-note">短文では声質と明瞭さが比較的安定した例。</p>
+          <p class="sample-text">おはようございます。昨日送っていただいた資料、先ほど確認しました。</p>
+          <div class="sample-settings">round2_ref8s / temp=0.65 / top_p=0.75 / cap=192</div>
+          <audio controls preload="none" src="audio/curated/03_qwen3_conversation.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>改善例</span>
+            <strong>CosyVoice2</strong>
+          </div>
+          <div class="sample-id">curated_04_cosyvoice2_conversation</div>
+          <p class="sample-note">初期検証より違和感が減った改善後の短文例。</p>
+          <p class="sample-text">おはようございます。昨日送っていただいた資料、先ほど確認しました。</p>
+          <div class="sample-settings">round2_ref20s / speed=1.05</div>
+          <audio controls preload="none" src="audio/curated/04_cosyvoice2_conversation.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>改善例</span>
+            <strong>VoxCPM2 clone</strong>
+          </div>
+          <div class="sample-id">curated_05_voxcpm2_conversation</div>
+          <p class="sample-note">声質は近いが抑揚に注意が必要なモデルの短文例。</p>
+          <p class="sample-text">おはようございます。昨日送っていただいた資料、先ほど確認しました。</p>
+          <div class="sample-settings">round2_ref20s / clone / cfg=2.0 / timesteps=10</div>
+          <audio controls preload="none" src="audio/curated/05_voxcpm2_conversation.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>ナレーション</span>
+            <strong>Irodori-TTS 600M VoiceDesign</strong>
+          </div>
+          <div class="sample-id">curated_06_irodori_narration</div>
+          <p class="sample-note">長めの説明文で間と語尾を確認するための例。</p>
+                    <details class="text-detail">
+            <summary>読み上げテキスト</summary>
+            <p class="sample-text">静かな部屋で、録音ランプがゆっくりと点灯しました。<br><br>マイクの前に座り、息を整え、最初の一文を読み始めます。声は少し低く、落ち着いていて、聞き手が内容を追いやすい速度を保っています。<br><br>このナレーションでは、間の取り方、語尾の余韻、そして長い文章を読んだときの安定感を確認します。</p>
+          </details>
+          <div class="sample-settings">round2_ref20s / steps=24</div>
+          <audio controls preload="none" src="audio/curated/06_irodori_narration.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>ナレーション</span>
+            <strong>Qwen3-TTS 1.7B</strong>
+          </div>
+          <div class="sample-id">curated_07_qwen3_narration</div>
+          <p class="sample-note">Qwen3の抑揚と長め文章の安定性を見る例。</p>
+                    <details class="text-detail">
+            <summary>読み上げテキスト</summary>
+            <p class="sample-text">静かな部屋で、録音ランプがゆっくりと点灯しました。<br><br>マイクの前に座り、息を整え、最初の一文を読み始めます。声は少し低く、落ち着いていて、聞き手が内容を追いやすい速度を保っています。<br><br>このナレーションでは、間の取り方、語尾の余韻、そして長い文章を読んだときの安定感を確認します。</p>
+          </details>
+          <div class="sample-settings">round2_ref20s / temp=0.65 / top_p=0.75 / cap=384</div>
+          <audio controls preload="none" src="audio/curated/07_qwen3_narration.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>ナレーション</span>
+            <strong>VoxCPM2 ultimate</strong>
+          </div>
+          <div class="sample-id">curated_08_voxcpm2_narration</div>
+          <p class="sample-note">内容保持は悪くないが、抑揚の癖を確認する例。</p>
+                    <details class="text-detail">
+            <summary>読み上げテキスト</summary>
+            <p class="sample-text">静かな部屋で、録音ランプがゆっくりと点灯しました。<br><br>マイクの前に座り、息を整え、最初の一文を読み始めます。声は少し低く、落ち着いていて、聞き手が内容を追いやすい速度を保っています。<br><br>このナレーションでは、間の取り方、語尾の余韻、そして長い文章を読んだときの安定感を確認します。</p>
+          </details>
+          <div class="sample-settings">round2_ref20s / ultimate / cfg=2.0 / timesteps=10</div>
+          <audio controls preload="none" src="audio/curated/08_voxcpm2_narration.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>難例</span>
+            <strong>Qwen3-TTS 1.7B</strong>
+          </div>
+          <div class="sample-id">curated_09_qwen3_terms</div>
+          <p class="sample-note">長い技術語・数字で破綻しやすい傾向を示す例。</p>
+                    <details class="text-detail">
+            <summary>読み上げテキスト</summary>
+            <p class="sample-text">二千二十六年 六月 十五日 時点で、Windows 環境における GPU 推論、CPU 推論、API サーバー化の可否を確認します。<br><br>検証対象には、エヌティーティードコモ、オラクル エクサデータ、グーグル クラウド スパナー、アマゾン ダイナモ ディービー、マイクロソフト アジュール、エヌビディア ジーフォース アールティーエックス よんぜろななぜろ、クーダ じゅうに てん ろく、パイソン さん てん じゅう が含まれます。<br><br>売上は、ひゃくにじゅうさんまん よんせん ごひゃく ろくじゅうなな円。達成率は、きゅうじゅうはち てん ななパーセント。受付時間は、午前 九時 三十分から、午後 六時 十五分までです。<br><br>URLは、エイチティーティーピーエス、コロン、スラッシュ、スラッシュ、イグザンプル ドット コム、スラッシュ、ドックス、スラッシュ、ティーティーエス、ハイフン、チェックリストです。</p>
+          </details>
+          <div class="sample-settings">round2_ref8s / temp=0.65 / top_p=0.75 / cap=640</div>
+          <audio controls preload="none" src="audio/curated/09_qwen3_terms_numbers.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>難例</span>
+            <strong>CosyVoice2</strong>
+          </div>
+          <div class="sample-id">curated_10_cosyvoice2_terms</div>
+          <p class="sample-note">数字・英字・サービス名を含む長文での安定性を見る例。</p>
+                    <details class="text-detail">
+            <summary>読み上げテキスト</summary>
+            <p class="sample-text">二千二十六年 六月 十五日 時点で、Windows 環境における GPU 推論、CPU 推論、API サーバー化の可否を確認します。<br><br>検証対象には、エヌティーティードコモ、オラクル エクサデータ、グーグル クラウド スパナー、アマゾン ダイナモ ディービー、マイクロソフト アジュール、エヌビディア ジーフォース アールティーエックス よんぜろななぜろ、クーダ じゅうに てん ろく、パイソン さん てん じゅう が含まれます。<br><br>売上は、ひゃくにじゅうさんまん よんせん ごひゃく ろくじゅうなな円。達成率は、きゅうじゅうはち てん ななパーセント。受付時間は、午前 九時 三十分から、午後 六時 十五分までです。<br><br>URLは、エイチティーティーピーエス、コロン、スラッシュ、スラッシュ、イグザンプル ドット コム、スラッシュ、ドックス、スラッシュ、ティーティーエス、ハイフン、チェックリストです。</p>
+          </details>
+          <div class="sample-settings">round2_ref8s / speed=0.95</div>
+          <audio controls preload="none" src="audio/curated/10_cosyvoice2_terms_numbers.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>難例</span>
+            <strong>VoxCPM2 ultimate</strong>
+          </div>
+          <div class="sample-id">curated_11_voxcpm2_terms</div>
+          <p class="sample-note">内容保持と抑揚の両方を確認するための長文例。</p>
+                    <details class="text-detail">
+            <summary>読み上げテキスト</summary>
+            <p class="sample-text">二千二十六年 六月 十五日 時点で、Windows 環境における GPU 推論、CPU 推論、API サーバー化の可否を確認します。<br><br>検証対象には、エヌティーティードコモ、オラクル エクサデータ、グーグル クラウド スパナー、アマゾン ダイナモ ディービー、マイクロソフト アジュール、エヌビディア ジーフォース アールティーエックス よんぜろななぜろ、クーダ じゅうに てん ろく、パイソン さん てん じゅう が含まれます。<br><br>売上は、ひゃくにじゅうさんまん よんせん ごひゃく ろくじゅうなな円。達成率は、きゅうじゅうはち てん ななパーセント。受付時間は、午前 九時 三十分から、午後 六時 十五分までです。<br><br>URLは、エイチティーティーピーエス、コロン、スラッシュ、スラッシュ、イグザンプル ドット コム、スラッシュ、ドックス、スラッシュ、ティーティーエス、ハイフン、チェックリストです。</p>
+          </details>
+          <div class="sample-settings">round2_ref20s / ultimate / cfg=2.0 / timesteps=10</div>
+          <audio controls preload="none" src="audio/curated/11_voxcpm2_terms_numbers.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>プレゼン</span>
+            <strong>Fish Speech S2 Pro</strong>
+          </div>
+          <div class="sample-id">curated_12_fish_presentation</div>
+          <p class="sample-note">H4n Pro録音後のプレゼン文で、自然さを確認する例。</p>
+          <p class="sample-text">本日は、ローカル環境で日本語音声合成を検証した結果を共有します。まず、録音条件と評価の観点を整理します。</p>
+          <div class="sample-settings">h4n_ref10s_neutral_091_093</div>
+          <audio controls preload="none" src="audio/curated/12_fish_presentation_chunk_01.mp3"></audio>
+        </article>
+
+        <article class="sample-card" data-group="選抜公開サンプル">
+          <div class="sample-meta">
+            <span>プレゼン</span>
+            <strong>Irodori-TTS 600M VoiceDesign</strong>
+          </div>
+          <div class="sample-id">curated_13_irodori_presentation</div>
+          <p class="sample-note">Irodoriの実用速度でプレゼン文を試した例。</p>
+          <p class="sample-text">本日は、ローカル環境で日本語音声合成を検証した結果を共有します。まず、録音条件と評価の観点を整理します。</p>
+          <div class="sample-settings">h4n_ref20s_neutral_091_094 / steps=24</div>
+          <audio controls preload="none" src="audio/curated/13_irodori_presentation_chunk_01.mp3"></audio>
+        </article>
+      </div>
+    </section>
+    <section>
       <h2>Irodori-TTS 600M VoiceDesign: EV発表スピーチ抜粋</h2>
       <p>5分程度の架空EV発表スピーチから、トーン差が出やすい箇所を選抜しました。</p>
       <div class="grid">
 
         <article class="sample-card" data-group="Irodori-TTS 600M VoiceDesign EVプレゼン抜粋">
           <div class="sample-meta">
-            <span>ev_launch_001</span>
+            <span>sample</span>
             <strong>落ち着いた導入</strong>
           </div>
-          <p>皆さま、本日はアステリア・モーターズの新車発表会にお越しいただき、誠にありがとうございます。</p>
+          <div class="sample-id">ev_launch_001</div>
+          <p class="sample-text">皆さま、本日はアステリア・モーターズの新車発表会にお越しいただき、誠にありがとうございます。</p>
           <audio controls preload="none" src="audio/ev-launch/001_calm_opening.mp3"></audio>
         </article>
 
         <article class="sample-card" data-group="Irodori-TTS 600M VoiceDesign EVプレゼン抜粋">
           <div class="sample-meta">
-            <span>ev_launch_004</span>
+            <span>sample</span>
             <strong>自信のある発表</strong>
           </div>
-          <p>その名は、アステリア・ルーメン。光を意味する名前のとおり、これからの暮らしを静かに照らすために生まれました。</p>
+          <div class="sample-id">ev_launch_004</div>
+          <p class="sample-text">その名は、アステリア・ルーメン。光を意味する名前のとおり、これからの暮らしを静かに照らすために生まれました。</p>
           <audio controls preload="none" src="audio/ev-launch/004_confident_reveal.mp3"></audio>
         </article>
 
         <article class="sample-card" data-group="Irodori-TTS 600M VoiceDesign EVプレゼン抜粋">
           <div class="sample-meta">
-            <span>ev_launch_007</span>
+            <span>sample</span>
             <strong>高揚感を抑えた説明</strong>
           </div>
-          <p>アクセルを踏んだ瞬間の反応は鋭く、それでいて唐突ではありません。街中でも高速道路でも、扱いやすい加速を実現しました。</p>
+          <div class="sample-id">ev_launch_007</div>
+          <p class="sample-text">アクセルを踏んだ瞬間の反応は鋭く、それでいて唐突ではありません。街中でも高速道路でも、扱いやすい加速を実現しました。</p>
           <audio controls preload="none" src="audio/ev-launch/007_excited_controlled.mp3"></audio>
         </article>
 
         <article class="sample-card" data-group="Irodori-TTS 600M VoiceDesign EVプレゼン抜粋">
           <div class="sample-meta">
-            <span>ev_launch_015</span>
+            <span>sample</span>
             <strong>動的な走行説明</strong>
           </div>
-          <p>ドライブモードは、コンフォート、レンジ、スポーツの三種類です。スポーツでは、車体が一段引き締まったように反応します。</p>
+          <div class="sample-id">ev_launch_015</div>
+          <p class="sample-text">ドライブモードは、コンフォート、レンジ、スポーツの三種類です。スポーツでは、車体が一段引き締まったように反応します。</p>
           <audio controls preload="none" src="audio/ev-launch/015_driving_dynamic.mp3"></audio>
         </article>
 
         <article class="sample-card" data-group="Irodori-TTS 600M VoiceDesign EVプレゼン抜粋">
           <div class="sample-meta">
-            <span>ev_launch_022</span>
+            <span>sample</span>
             <strong>デモらしい明るさ</strong>
           </div>
-          <p>このあと、ステージ左手のスクリーンで、実際の走行映像をご覧いただきます。加速、静粛性、そして回生ブレーキにご注目ください。</p>
+          <div class="sample-id">ev_launch_022</div>
+          <p class="sample-text">このあと、ステージ左手のスクリーンで、実際の走行映像をご覧いただきます。加速、静粛性、そして回生ブレーキにご注目ください。</p>
           <audio controls preload="none" src="audio/ev-launch/022_demo_lively.mp3"></audio>
         </article>
 
         <article class="sample-card" data-group="Irodori-TTS 600M VoiceDesign EVプレゼン抜粋">
           <div class="sample-meta">
-            <span>ev_launch_028</span>
+            <span>sample</span>
             <strong>心を込めた締め</strong>
           </div>
-          <p>ここまで支えてくださった開発チーム、協力会社の皆さま、そして待ってくださったお客様に、改めて感謝いたします。</p>
+          <div class="sample-id">ev_launch_028</div>
+          <p class="sample-text">ここまで支えてくださった開発チーム、協力会社の皆さま、そして待ってくださったお客様に、改めて感謝いたします。</p>
           <audio controls preload="none" src="audio/ev-launch/028_heartfelt_closing.mp3"></audio>
         </article>
 
         <article class="sample-card" data-group="Irodori-TTS 600M VoiceDesign EVプレゼン抜粋">
           <div class="sample-meta">
-            <span>ev_launch_035</span>
+            <span>sample</span>
             <strong>感情のピーク</strong>
           </div>
-          <p>ここで改めて、アステリア・ルーメンを皆さまにお見せします。静かに、力強く、そして美しく走る、新しい電気自動車です。</p>
+          <div class="sample-id">ev_launch_035</div>
+          <p class="sample-text">ここで改めて、アステリア・ルーメンを皆さまにお見せします。静かに、力強く、そして美しく走る、新しい電気自動車です。</p>
           <audio controls preload="none" src="audio/ev-launch/035_emotional_peak.mp3"></audio>
         </article>
 
         <article class="sample-card" data-group="Irodori-TTS 600M VoiceDesign EVプレゼン抜粋">
           <div class="sample-meta">
-            <span>ev_launch_040</span>
+            <span>sample</span>
             <strong>最後の謝辞</strong>
           </div>
-          <p>重ねて、本日はありがとうございました。アステリア・ルーメンとともに、静けさの先へ進む旅を、ぜひご一緒ください。</p>
+          <div class="sample-id">ev_launch_040</div>
+          <p class="sample-text">重ねて、本日はありがとうございました。アステリア・ルーメンとともに、静けさの先へ進む旅を、ぜひご一緒ください。</p>
           <audio controls preload="none" src="audio/ev-launch/040_final_thanks.mp3"></audio>
         </article>
       </div>

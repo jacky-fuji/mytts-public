@@ -4,10 +4,11 @@ This repository is a public artifact bundle for a personal Japanese TTS / voice 
 
 ## Contents
 
-- `articles/local-japanese-tts-voice-clone.md`: Zenn article draft. `published` is set to `false` by default.
+- `articles/local-japanese-tts-voice-clone.md`: exported copy of the published Zenn article.
 - `images/local-japanese-tts-voice-clone/`: images referenced from the Zenn article.
-- `docs/index.html`: GitHub Pages audio sample page.
-- `docs/audio/`: selected generated audio samples, normalized and encoded as MP3 for web listening.
+- `docs/index.html`: GitHub Pages audio sample page for same-text comparisons and curated public examples.
+- `docs/audio/`: selected generated audio samples, loudness-normalized and encoded as MP3 for web listening.
+- `docs/audio_manifest.csv`: public audio manifest. Source WAV paths are listed for reproducibility, but the WAV files themselves are not included.
 - `data/`: recording script and selected evaluation metrics.
 - `scripts/`: selected analysis/report helper scripts.
 
@@ -21,10 +22,10 @@ The raw reference recordings and full generated output set are intentionally exc
 ## Suggested Publishing Flow
 
 1. Review every file in this repository before publishing.
-2. Create a public GitHub repository and push this directory.
+2. Push this repository to GitHub.
 3. Enable GitHub Pages from the repository's `docs/` directory.
-4. Connect the same repository to Zenn, or copy `articles/local-japanese-tts-voice-clone.md` into a Zenn-managed repository.
-5. After Pages is live, add the Pages URL to the Zenn article.
+4. Manage the canonical Zenn article in the private Zenn content repository.
+5. Keep the Pages URL and public repository link in the Zenn article synchronized.
 
 ## Licenses
 
