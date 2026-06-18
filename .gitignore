@@ -1,0 +1,15 @@
+__pycache__/
+.DS_Store
+Thumbs.db
+*.wav
+*.m4a
+*.flac
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.bin
+tools/
+outputs/
+samples/voice/
+samples/voice_refs/
