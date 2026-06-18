@@ -2,6 +2,12 @@
 
 This repository is a public artifact bundle for a personal Japanese TTS / voice clone experiment.
 
+## Canonical Links
+
+- Zenn article: https://zenn.dev/fujinumagic/articles/local-japanese-tts-voice-clone
+- GitHub Pages audio samples: https://jacky-fuji.github.io/mytts-public/
+- Public repository: https://github.com/jacky-fuji/mytts-public
+
 ## Contents
 
 - `articles/local-japanese-tts-voice-clone.md`: exported copy of the published Zenn article.
@@ -25,7 +31,7 @@ The raw reference recordings and full generated output set are intentionally exc
 2. Push this repository to GitHub.
 3. Enable GitHub Pages from the repository's `docs/` directory.
 4. Manage the canonical Zenn article in the private Zenn content repository.
-5. Keep the Pages URL and public repository link in the Zenn article synchronized.
+5. Keep the Zenn article, Pages URL, and public repository link synchronized.
 
 ## Licenses
 
