@@ -1,5 +1,5 @@
 sample	original_wav	text_file	category	notes
-similarity_h4n_005	samples/voice/h4n_round2_wav/h4n_round2_005.wav	samples/text/similarity_h4n_005.txt	natural_numbers	短い自然文。数字という語は含むが数値列はない。
+similarity_h4n_005	samples/voice/h4n_round2_wav/h4n_round2_005.wav	samples/text/similarity_h4n_005.txt	short_explanation	短い自然文。数字という語は含むが数値列はない。
 similarity_h4n_026	samples/voice/h4n_round2_wav/h4n_round2_026.wav	samples/text/similarity_h4n_026.txt	technical_terms	RTX、VRAM、CUDA、Python、PyTorchを含む技術語サンプル。
 similarity_h4n_051	samples/voice/h4n_round2_wav/h4n_round2_051.wav	samples/text/similarity_h4n_051.txt	narration	説明動画の冒頭に近い落ち着いたナレーション。
 similarity_h4n_087	samples/voice/h4n_round2_wav/h4n_round2_087.wav	samples/text/similarity_h4n_087.txt	contextual_reading	「生」の読み分けを含む日本語特有のサンプル。

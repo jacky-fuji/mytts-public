@@ -1,0 +1,6 @@
+model	sample_count	total_seconds_elapsed	total_wall_seconds	total_audio_duration_sec	avg_rtf	avg_wall_rtf
+Irodori-TTS 500M	3	3.485	39.495	29.920	0.116	1.320
+Irodori-TTS 600M VoiceDesign	3	3.772	44.800	28.960	0.130	1.547
+CosyVoice2	3	24.935	24.935	28.000	0.891	0.891
+VoxCPM2 ultimate	3	33.173	33.173	23.840	1.391	1.391
+Qwen3-TTS 1.7B	3	46.963	46.963	24.560	1.912	1.912

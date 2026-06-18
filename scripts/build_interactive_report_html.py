@@ -33,7 +33,7 @@ MODEL_ORDER = [
 
 
 SAMPLE_LABELS = {
-    "similarity_h4n_005": "005: 数字・固有名詞",
+    "similarity_h4n_005": "005: 短い説明文",
     "similarity_h4n_026": "026: 技術語",
     "similarity_h4n_051": "051: ナレーション",
     "similarity_h4n_087": "087: 文脈読み",

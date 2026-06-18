@@ -1,0 +1,4 @@
+sample_id	target_language	text_file	max_new_tokens	category	notes
+genbench_short_01	Japanese	samples/text/generation_benchmark/genbench_short_01.txt	192	short	短く単純な文章。
+genbench_narration_01	Japanese	samples/text/generation_benchmark/genbench_narration_01.txt	256	narration	少し長めの説明・ナレーション文。
+genbench_technical_01	Japanese	samples/text/generation_benchmark/genbench_technical_01.txt	256	technical_terms	RTX、VRAM、CUDA、Python、PyTorch、RTFなどの技術語と数字を含む文章。
