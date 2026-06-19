@@ -107,6 +107,7 @@ def main() -> None:
     chart_x0, chart_x1 = 590, 1438
     chart_y0, row_h = 250, 80
 
+    direction_label_y = chart_y0 - 34
     for tick in tick_values(max_v):
         if tick < min_v or tick > max_v:
             continue
@@ -114,8 +115,8 @@ def main() -> None:
         draw.line((x, chart_y0 - 30, x, chart_y0 + row_h * len(rows) - 8), fill=(229, 235, 244), width=1)
         label = f"{tick:g}x"
         text(draw, (x, chart_y0 - 62), label, fill=MUTED, font_obj=FONT_XS, anchor="ma")
-    text(draw, (chart_x0, chart_y0 - 92), "速い", fill=TEAL, font_obj=FONT_S, anchor="ma")
-    text(draw, (chart_x1, chart_y0 - 92), "遅い", fill=CORAL, font_obj=FONT_S, anchor="ma")
+    text(draw, (chart_x0, direction_label_y), "速い", fill=TEAL, font_obj=FONT_S, anchor="ma")
+    text(draw, (chart_x1, direction_label_y), "遅い", fill=CORAL, font_obj=FONT_S, anchor="ma")
 
     for idx, row in enumerate(rows):
         y = chart_y0 + idx * row_h
