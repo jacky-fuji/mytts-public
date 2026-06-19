@@ -1,5 +1,5 @@
 ---
-title: "ローカルPCで日本語ボイスクローンを作る: Irodori-TTS / Qwen3-TTS / Fish Speechなど6モデルを音響分析付きで比較"
+title: "日本語ボイスクローン6モデル比較: Irodori-TTS/Qwen3-TTS/Fish Speechを音響分析"
 emoji: "🎙️"
 type: "tech"
 topics: ["tts", "音声合成", "ai", "生成ai", "ローカルai"]
