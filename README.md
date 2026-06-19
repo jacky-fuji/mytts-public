@@ -1,6 +1,7 @@
 # Local Japanese TTS Voice Clone Report
 
 This repository is a public artifact bundle for a personal Japanese TTS / voice clone experiment.
+It accompanies the Zenn article and GitHub Pages audio sample page.
 
 ## Canonical Links
 
@@ -17,6 +18,13 @@ This repository is a public artifact bundle for a personal Japanese TTS / voice 
 - `docs/audio_manifest.csv`: public audio manifest. Source WAV paths are listed for reproducibility, but the WAV files themselves are not included.
 - `data/`: recording script and selected evaluation metrics.
 - `scripts/`: selected analysis/report helper scripts.
+
+## Latest Summary
+
+- The Zenn article topics are tuned for discovery around `tts`, `音声合成`, `ai`, `生成ai`, and `ローカルai`.
+- Fish Speech S2 Pro had the strongest subjective naturalness, but the same 3-sentence timing benchmark measured 2994.0 seconds for 24.1 seconds of audio.
+- Irodori-TTS 600M VoiceDesign remained the best speed/quality balance for local Japanese generation in this experiment.
+- Public audio files are generated samples only; raw speaker recordings are excluded.
 
 ## Important Notice
 

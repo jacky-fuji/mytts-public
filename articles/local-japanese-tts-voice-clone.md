@@ -2,7 +2,7 @@
 title: "ローカルPCで自分の声の日本語TTSを作る: 録音、モデル比較、音響分析まで"
 emoji: "🎙️"
 type: "tech"
-topics: ["tts", "python", "音声合成", "機械学習", "voiceclone"]
+topics: ["tts", "音声合成", "ai", "生成ai", "ローカルai"]
 published: true
 ---
 
