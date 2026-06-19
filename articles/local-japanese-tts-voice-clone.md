@@ -1,5 +1,5 @@
 ---
-title: "日本語ボイスクローン6モデル比較: Irodori-TTS/Qwen3-TTS/Fish Speechを音響分析"
+title: "日本語ボイスクローン6モデル比較: Irodori-TTS/Qwen3-TTS/Fish Speech等を音響分析"
 emoji: "🎙️"
 type: "tech"
 topics: ["tts", "音声合成", "ai", "生成ai", "ローカルai"]
