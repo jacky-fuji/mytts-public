@@ -73,6 +73,18 @@
       color: #40506a;
       font-size: .95rem;
     }
+    .hero-art {
+      margin: 24px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #0f1728;
+    }
+    .hero-art img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
     .comparison-list {
       display: grid;
       gap: 26px;
@@ -208,6 +220,7 @@
       </nav>
       <div class="notice">この公開版では、プライバシー保護のため本人の元録音は含めていません。音声サンプルは公開用に選抜した生成音声を、元WAVからMP3へエンコードし、試聴しやすい音量へ正規化したものです。</div>
       <div class="method-note">公開用音声は、生成されたWAVファイルを元に、FFmpegの <code>loudnorm=I=-18:TP=-1.5:LRA=11</code> で試聴音量をそろえ、MP3 160kbpsへエンコードしています。分析本文で扱った音響指標は、原則として元WAVを対象にしています。</div>
+      <figure class="hero-art"><img src="assets/hero-visual.png" alt="ローカル日本語TTS Voice Clone検証のビジュアルイメージ"></figure>
     </div>
   </header>
   <main>

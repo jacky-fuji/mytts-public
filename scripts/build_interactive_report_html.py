@@ -17,7 +17,7 @@ MD_PATH = DOCS / "local_japanese_tts_voice_clone_public_report.md"
 OUT_PATH = DOCS / "local_japanese_tts_voice_clone_interactive_report.html"
 METRICS_PATH = DOCS / "comparisons" / "acoustic_similarity_deep_metrics.tsv"
 LOUDNESS_PATH = DOCS / "assets" / "report_audio_loudness_manifest.json"
-HERO = "assets/tts_voice_clone_project_map_16x9_1920.png"
+HERO = "assets/tts_voice_clone_hero_visual_v2.png"
 AUDIO_EXTS = {".wav", ".mp3", ".flac", ".m4a"}
 
 
@@ -855,8 +855,8 @@ HTML_TEMPLATE = Template(
     <h1>ローカルPCで自分の声の日本語TTSを作る</h1>
     <p class="lead">録音、モデル比較、音響分析、試聴サンプルまでをひとつにまとめた検証レポート。本文を読みながら、必要な箇所で元音声と生成音声を比較できる。</p>
     <figure class="hero-cover">
-      <img src="{{ hero }}" alt="ローカル日本語TTS / Voice Clone検証 プロジェクト全体図">
-      <figcaption>ローカル日本語TTS / Voice Clone検証のプロジェクト全体図</figcaption>
+      <img src="{{ hero }}" alt="ローカル日本語TTS / Voice Clone検証のビジュアルイメージ">
+      <figcaption>ローカル日本語TTS / Voice Clone検証のビジュアルイメージ</figcaption>
     </figure>
   </header>
   <main class="layout">
