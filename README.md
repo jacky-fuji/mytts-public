@@ -12,11 +12,12 @@ It accompanies the Zenn article and GitHub Pages audio sample page.
 ## Contents
 
 - `articles/local-japanese-tts-voice-clone.md`: exported copy of the published Zenn article.
+- `docs/reproducibility.md`: environment, model revision, and generation-condition notes.
 - `images/local-japanese-tts-voice-clone/`: images referenced from the Zenn article.
 - `docs/index.html`: GitHub Pages audio sample page for same-text comparisons and curated public examples.
 - `docs/audio/`: selected generated audio samples, loudness-normalized and encoded as MP3 for web listening.
 - `docs/audio_manifest.csv`: public audio manifest. Source WAV paths are listed for reproducibility, but the WAV files themselves are not included.
-- `data/`: recording script and selected evaluation metrics.
+- `data/`: recording script, model inventory, and selected evaluation metrics.
 - `scripts/`: selected analysis/report helper scripts.
 
 ## Latest Summary

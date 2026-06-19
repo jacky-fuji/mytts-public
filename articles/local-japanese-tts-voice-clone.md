@@ -73,6 +73,27 @@ Get-CimInstance Win32_Processor |
   Select-Object Name,NumberOfCores,NumberOfLogicalProcessors,MaxClockSpeed
 ```
 
+### 再現性メモ
+
+TTSは、同じモデル名でも、モデルrevision、依存ライブラリ、CUDA/PyTorch、推論パラメータ、参照音声の長さで結果が変わる。そのため、公開用リポジトリに再現性メモとモデル一覧CSVを追加した。
+
+- 詳細: [docs/reproducibility.md](https://github.com/jacky-fuji/mytts-public/blob/main/docs/reproducibility.md)
+- モデル一覧CSV: [data/model_inventory.csv](https://github.com/jacky-fuji/mytts-public/blob/main/data/model_inventory.csv)
+
+主な実行条件は以下である。
+
+| 項目 | 内容 |
+|---|---|
+| `nvidia-smi` | Driver 596.36 / CUDA 13.2 |
+| PyTorch CUDA runtime | 主に `+cu128`、つまりCUDA 12.8 wheel |
+| Irodori-TTS | `Aratako/Irodori-TTS-500M-v3` revision `236c1e5...`、`Aratako/Irodori-TTS-600M-v3-VoiceDesign` revision `e863a3a...` |
+| Qwen3-TTS | `Qwen/Qwen3-TTS-12Hz-1.7B-Base` revision `fd4b254...`、`temperature=0.65`、`top_p=0.75` |
+| Fish Speech | `fishaudio/s2-pro` の `refs/main` は `1de9996...`。Fish Speech側ツールは commit `e5e2926...` |
+| CosyVoice2 | `FunAudioLLM/CosyVoice2-0.5B` の `refs/main` は `eec1ae6...`。CosyVoice側ツールは commit `074ca6d...` |
+| VoxCPM2 | `openbmb/VoxCPM2` revision `bffb3df...`、`cfg_value=2.0`、`inference_timesteps=10` |
+
+ここでのrevisionは、2026年6月19日時点でローカルHugging FaceキャッシュまたはローカルGitから確認できた値である。Fish SpeechとCosyVoice2は、キャッシュに `refs/main` は残っていたが `snapshots/` ディレクトリが確認できなかったため、詳細資料ではその制約も明記している。
+
 ## リポジトリ構成
 
 検証はGit管理し、生成音声、入力テキスト、比較結果、スクリプトを分けて保存した。WAVは大きくなりやすいため、公開・共有する場合は必要なサンプルだけを選ぶのが現実的である。
